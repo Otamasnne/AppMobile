@@ -1,6 +1,7 @@
 package com.example.dapp.network
 
 import com.example.dapp.responses.ArticulosResponseItem
+import com.example.dapp.responses.detalle.Items
 import com.example.dapp.responses.login.LoginRespondePH
 import com.example.dapp.responses.login.User
 import com.example.dapp.responses.login.UserDto
@@ -45,11 +46,16 @@ interface AuthApi {
     suspend fun getPedidoInicio() : List<Pedido>
 
 
-
     @Headers(
         "Authorization: Basic c3ZlbjpwYXNz",
         "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
-    @GET("restful/services/depotapp.Articulos/actions/listAll/invoke/")
-    suspend fun getArticulos () : ArticulosResponseItem
+    @GET("restful/services/depotapp.Pedidos/actions/listItems/invoke/")
+    suspend fun getArticulos() : Response<List<Items>>
+
+//    @Headers(
+//        "Authorization: Basic c3ZlbjpwYXNz",
+//        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+//    @GET("restful/services/depotapp.Articulos/actions/listAll/invoke/")
+//    suspend fun getArticulos () : ArticulosResponseItem
 
 }

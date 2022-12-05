@@ -19,7 +19,7 @@ import com.example.dapp.repository.PedidoRepository
 import com.example.dapp.responses.pedidoModel.Pedido
 import com.example.dapp.ui.base.BaseFragment
 
-class PedidoFragment : BaseFragment<PedidoViewModel, FragmentPedidoBinding, PedidoRepository>() {
+class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, PedidoRepository>(), RecyclerViewClickListener {
 
     //var recycler: RecyclerView? = null
 
@@ -38,7 +38,7 @@ class PedidoFragment : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Pedi
             recycler.also {
                 it?.layoutManager = LinearLayoutManager(requireContext())
                 it?.setHasFixedSize(true)
-                it?.adapter = PedidoAdapter(pedidos)
+                it?.adapter = PedidoAdapter(pedidos, this)
             }
 
             if (pedidos.isEmpty()) {
@@ -50,6 +50,13 @@ class PedidoFragment : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Pedi
 
     }
 
+
+    override fun onRecyclerViewItemClick(view: View, pedido: Pedido) {
+        super.onRecyclerViewItemClick(view, pedido)
+
+        //Toast.makeText(requireContext(), "clickwork", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_pedidoFragment_to_detallePedidoFragment)
+    }
 
     override fun getViewModel() = PedidoViewModel::class.java
 

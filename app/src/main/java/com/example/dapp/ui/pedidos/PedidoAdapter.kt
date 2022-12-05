@@ -14,7 +14,8 @@ import com.example.dapp.responses.login.User
 import com.example.dapp.responses.pedidoModel.Pedido
 
 class PedidoAdapter(
-    private val pedidos: List<Pedido>
+    private val pedidos: List<Pedido>,
+    private var listener: RecyclerViewClickListener
 ) : RecyclerView.Adapter<PedidoAdapter.PedidoViewHolder>(){
 
 
@@ -36,6 +37,9 @@ class PedidoAdapter(
 
     override fun onBindViewHolder(holder: PedidoViewHolder, position: Int) {
        holder.recyclerviewPedidoBinding.pedido = pedidos[position]
+        holder.recyclerviewPedidoBinding.root.setOnClickListener {
+            listener.onRecyclerViewItemClick(holder.recyclerviewPedidoBinding.root, pedidos[position])
+        }
 
     }
 

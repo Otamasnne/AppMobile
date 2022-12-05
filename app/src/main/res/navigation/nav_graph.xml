@@ -27,5 +27,14 @@
         android:id="@+id/pedidoFragment"
         android:name="com.example.dapp.ui.pedidos.PedidoFragment"
         android:label="fragment_pedido"
-        tools:layout="@layout/fragment_pedido" />
+        tools:layout="@layout/fragment_pedido" >
+        <action
+            android:id="@+id/action_pedidoFragment_to_detallePedidoFragment"
+            app:destination="@id/detallePedidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallePedidoFragment"
+        android:name="com.example.dapp.ui.pedidos.detallePedido.DetallePedidoFragment"
+        android:label="fragment_detalle_pedido"
+        tools:layout="@layout/fragment_detalle_pedido" />
 </navigation>
