@@ -1,5 +1,6 @@
 package com.example.dapp.network
 
+import com.example.dapp.responses.pedidoModel.Pedido
 import okhttp3.ResponseBody
 
 sealed class Resource<out T> {
@@ -10,4 +11,5 @@ sealed class Resource<out T> {
         val errorCode: Int?,
         val errorBody: ResponseBody?
             ) : Resource<Nothing>()
+
 }

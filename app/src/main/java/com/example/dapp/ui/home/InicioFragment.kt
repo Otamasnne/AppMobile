@@ -14,34 +14,23 @@ import com.example.dapp.databinding.FragmentLoginBinding
 import com.example.dapp.network.AuthApi
 import com.example.dapp.network.Resource
 import com.example.dapp.repository.AuthRepository
+import com.example.dapp.repository.PedidoRepository
 import com.example.dapp.ui.auth.AuthViewModel
 import com.example.dapp.ui.base.BaseFragment
 
-class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, AuthRepository>() {
-
-
+class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, PedidoRepository>() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getPedidos()
         //we need to observe login response live data
-        viewModel.articulosResponse.observe(viewLifecycleOwner, Observer {
-            when(it) {
-                is Resource.Success -> {
-                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
-
-
-                }
-                is Resource.Failure -> {
-                    Toast.makeText(requireContext(), "fetch failure", Toast.LENGTH_SHORT).show()
-
-                    //Navegando hacia inicioFragment
-                    //action_loginFragment_to_inicioFragment
-//                    findNavController().navigate(R.id.action_loginFragment_to_inicioFragment)
-
-                }
-
+        viewModel.pedidosResponse.observe(viewLifecycleOwner, Observer {
+            if (it.isEmpty()){
+                binding.btnfetchData.text = "No hay pedidos"
+            } else {
+                binding.btnfetchData.text = it.size.toString()
             }
         })
 
@@ -50,9 +39,10 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, AuthRe
 //            val email = binding.etUser.text.toString().trim()
 //            val password = binding.etPassword.text.toString().trim()
 
+            findNavController().navigate(R.id.action_inicioFragment_to_pedidoFragment)
             //hit API
             //@todo add input validations
-            viewModel.getArticulos()
+            //viewModel.getArticulos()
         }
     }
 
@@ -63,6 +53,6 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, AuthRe
         container: ViewGroup?
     ) = FragmentInicioBinding.inflate(inflater, container, false)
 
-    override fun getFragmentRepository() = AuthRepository(remoteDataSource.buildApi(AuthApi::class.java))
+    override fun getFragmentRepository() = PedidoRepository(remoteDataSource.buildApi(AuthApi::class.java))
 
 }

@@ -4,6 +4,8 @@ import com.example.dapp.responses.ArticulosResponseItem
 import com.example.dapp.responses.login.LoginRespondePH
 import com.example.dapp.responses.login.User
 import com.example.dapp.responses.login.UserDto
+import com.example.dapp.responses.pedidoModel.Pedido
+import retrofit2.Response
 import retrofit2.http.*
 
 interface AuthApi {
@@ -30,6 +32,17 @@ interface AuthApi {
 
     //pruebas
 
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+    @GET("restful/services/depotapp.Pedidos/actions/listAll/invoke/")
+    suspend fun getPedidos() : Response<List<Pedido>>
+
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+    @GET("restful/services/depotapp.Pedidos/actions/listAll/invoke/")
+    suspend fun getPedidoInicio() : List<Pedido>
 
 
 

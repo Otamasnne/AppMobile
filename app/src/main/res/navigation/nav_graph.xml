@@ -18,5 +18,14 @@
         android:id="@+id/inicioFragment"
         android:name="com.example.dapp.ui.home.InicioFragment"
         android:label="fragment_inicio"
-        tools:layout="@layout/fragment_inicio" />
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_pedidoFragment"
+            app:destination="@id/pedidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pedidoFragment"
+        android:name="com.example.dapp.ui.pedidos.PedidoFragment"
+        android:label="fragment_pedido"
+        tools:layout="@layout/fragment_pedido" />
 </navigation>

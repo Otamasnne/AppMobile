@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.dapp.R
 import com.example.dapp.databinding.FragmentLoginBinding
 import com.example.dapp.network.AuthApi
 import com.example.dapp.network.Resource
@@ -32,11 +34,12 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+
+                    findNavController().navigate(R.id.action_loginFragment_to_inicioFragment)
                 }
                 is Resource.Failure -> {
-                    Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_SHORT).show()
-
+                    //Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_SHORT).show()
+                    binding.btnIngresar.text = "probando"
                     //Navegando hacia inicioFragment
                     //action_loginFragment_to_inicioFragment
                     //findNavController().navigate(R.id.action_loginFragment_to_inicioFragment)

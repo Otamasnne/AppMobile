@@ -1,9 +1,15 @@
 package com.example.dapp.repository
 
 import com.example.dapp.network.Resource
+import com.example.dapp.responses.pedidoModel.Pedido
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.json.JSONException
+import org.json.JSONObject
 import retrofit2.HttpException
+import retrofit2.Response
+import java.io.IOException
+import java.lang.Exception
 
 abstract class BaseRepository {
 
@@ -32,4 +38,33 @@ abstract class BaseRepository {
             }
         }
     }
+
+
+
+    suspend fun <T: Any> apiRequest(call: suspend () -> Response<T>) : T {
+
+        val response = call.invoke()
+        if(response.isSuccessful){
+            return response.body()!!
+        } else {
+            //@Todo handle api exception
+//            val error = response.errorBody()?.toString()
+//            val message = StringBuilder()
+//            error?.let {
+//                try {
+//                    message.append(JSONObject(it).getString("message"))
+//
+//                }catch (e: JSONException){ }
+//                message.append("\n")
+//            }
+//
+//            message.append("Error code: ${response.code()}")
+            throw Exception(response.code().toString())
+            //return response.body()!!
+        }
+    }
+
+    class ApiException(message: String) : IOException(message)
+
+
 }

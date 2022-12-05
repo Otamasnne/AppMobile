@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.dapp.repository.AuthRepository
 import com.example.dapp.repository.BaseRepository
+import com.example.dapp.repository.PedidoRepository
 import com.example.dapp.ui.auth.AuthViewModel
 import com.example.dapp.ui.home.HomeViewModel
+import com.example.dapp.ui.pedidos.PedidoViewModel
 import java.lang.IllegalArgumentException
 
 // single viewModelFactory que es responsable de proveer todos los viewModels
@@ -25,7 +27,12 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(AuthViewModel::class.java) -> AuthViewModel(repository as AuthRepository) as T
             //Otros ViewModel Aca
             //prueba
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(repository as AuthRepository) as T
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(repository as PedidoRepository) as T
+            //else -> throw IllegalArgumentException("ViewModelClass Not Found")
+
+            //pedidos
+            modelClass.isAssignableFrom(PedidoViewModel::class.java) -> PedidoViewModel(repository as PedidoRepository) as T
+
             else -> throw IllegalArgumentException("ViewModelClass Not Found")
         }
     }

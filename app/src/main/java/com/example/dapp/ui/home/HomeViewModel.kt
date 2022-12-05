@@ -6,28 +6,30 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dapp.network.Resource
 import com.example.dapp.repository.AuthRepository
+import com.example.dapp.repository.PedidoRepository
 import com.example.dapp.responses.ArticulosResponseItem
+import com.example.dapp.responses.pedidoModel.Pedido
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
     //Temporalmente asignamos AuthRepository
-    private val repository: AuthRepository
+    private val repository: PedidoRepository
 ) : ViewModel() {
 
 
 
     //MutableLiveData where we can put the value
-    private val _articulosResponse : MutableLiveData<Resource<ArticulosResponseItem>> = MutableLiveData()
+    private val _pedidosResponse : MutableLiveData<List<Pedido>> = MutableLiveData()
     //LiveData que accede desde afuera de la clase
-    val articulosResponse: LiveData<Resource<ArticulosResponseItem>>
-        get() = _articulosResponse
+    val pedidosResponse: LiveData<List<Pedido>>
+        get() = _pedidosResponse
 
     //funcion para pegarle a la api con ayuda del repositorio llamando a la suspend fun login
     // en authRepository. Por eso necesitamos usar corutineScope
     //LLamamos esta funcion en LoginFragment dentro de onView
-    fun getArticulos() = viewModelScope.launch{
+    fun getPedidos() = viewModelScope.launch{
 
-      //  _articulosResponse.value = repository.getArticulos()
+        _pedidosResponse.value = repository.getPedidos()
     }
 
 
