@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListAdapter
 import android.widget.Toast
+import androidx.databinding.Bindable
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -44,18 +46,27 @@ class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Ped
             if (pedidos.isEmpty()) {
                 Toast.makeText(requireContext(), "No hay tareas pendientes", Toast.LENGTH_SHORT).show()
             }
+
+
+
         })
+
 
 
 
     }
 
+//    @BindingAdapter
+//    public fun estado(view: View, visible: Boolean){
+//        view.visibility = if(visible) View.VISIBLE else View.GONE
+//    }
 
     override fun onRecyclerViewItemClick(view: View, pedido: Pedido) {
         super.onRecyclerViewItemClick(view, pedido)
 
         //Toast.makeText(requireContext(), "clickwork", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_pedidoFragment_to_detallePedidoFragment)
+
     }
 
     override fun getViewModel() = PedidoViewModel::class.java

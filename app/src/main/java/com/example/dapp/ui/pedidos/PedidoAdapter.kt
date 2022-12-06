@@ -2,7 +2,9 @@ package com.example.dapp.ui.pedidos
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -18,12 +20,16 @@ class PedidoAdapter(
     private var listener: RecyclerViewClickListener
 ) : RecyclerView.Adapter<PedidoAdapter.PedidoViewHolder>(){
 
+    val estado = false
 
     override fun getItemCount() = pedidos.size
 
     inner class PedidoViewHolder(
         val recyclerviewPedidoBinding: RecyclerviewPedidoBinding
-    ): RecyclerView.ViewHolder(recyclerviewPedidoBinding.root)
+    ): RecyclerView.ViewHolder(recyclerviewPedidoBinding.root) {
+
+
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PedidoViewHolder(
@@ -36,10 +42,23 @@ class PedidoAdapter(
     )
 
     override fun onBindViewHolder(holder: PedidoViewHolder, position: Int) {
-       holder.recyclerviewPedidoBinding.pedido = pedidos[position]
-        holder.recyclerviewPedidoBinding.root.setOnClickListener {
-            listener.onRecyclerViewItemClick(holder.recyclerviewPedidoBinding.root, pedidos[position])
-        }
+
+            holder.recyclerviewPedidoBinding.pedido = pedidos[position]
+
+            holder.recyclerviewPedidoBinding.root.setOnClickListener {
+                listener.onRecyclerViewItemClick(holder.recyclerviewPedidoBinding.root, pedidos[position])
+            }
+
+            if (pedidos[position].procesando == 0) {
+                //holder.recyclerviewPedidoBinding.layoutItem.visibility= View.GONE
+                holder.recyclerviewPedidoBinding.cardView.visibility = View.GONE
+            }
+
+
+
+
+
+
 
     }
 

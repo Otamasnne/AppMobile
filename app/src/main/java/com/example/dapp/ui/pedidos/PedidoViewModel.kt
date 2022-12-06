@@ -3,6 +3,7 @@ package com.example.dapp.ui.pedidos
 import android.app.AlertDialog
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,11 +27,14 @@ class PedidoViewModel (
 
     //private val _pedidoResponse: MutableLiveData<>
 
+    
+
     fun getPedido() = viewModelScope.launch {
 
         //_pedidoResponse.value = repository.getPedidos()
         try {
             _pedidoResponse.value = repository.getPedidos()
+
         } catch(e:Exception) {
 
             _pedidoResponse.value = listOf()
