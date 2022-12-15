@@ -19,6 +19,21 @@ class DetallePedidoFragment : BaseFragment<
         FragmentDetallePedidoBinding,
         DetalleRepository>() {
 
+    private lateinit var codigoPedido: String
+
+
+    companion object {
+        const val CODIGO = "codigo"
+
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let{
+            codigoPedido = it.getString(CODIGO).toString()
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +46,7 @@ class DetallePedidoFragment : BaseFragment<
             recycler.also{
                 it?.layoutManager = LinearLayoutManager(requireContext())
                 it?.setHasFixedSize(true)
-                it?.adapter = DetallePedidoAdapter(articulos)
+                it?.adapter = DetallePedidoAdapter(articulos, codigoPedido)
             }
 
 //            if (pedidos.isEmpty()) {

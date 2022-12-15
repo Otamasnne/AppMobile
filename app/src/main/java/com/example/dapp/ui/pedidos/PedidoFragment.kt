@@ -10,6 +10,7 @@ import androidx.databinding.Bindable
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,9 +66,20 @@ class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Ped
         super.onRecyclerViewItemClick(view, pedido)
 
         //Toast.makeText(requireContext(), "clickwork", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_pedidoFragment_to_detallePedidoFragment)
+        val action = PedidoFragmentDirections.actionPedidoFragmentToDetallePedidoFragment(pedido.codigo)
+        //findNavController().navigate(R.id.action_pedidoFragment_to_detallePedidoFragment)
+        findNavController().navigate(action)
 
     }
+
+//    override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
+//        val item = list.get(position)
+//        holder.button.text = item.toString()
+//        holder.button.setOnClickListener {
+//            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
+//            holder.view.findNavController().navigate(action)
+//        }
+//    }
 
     override fun getViewModel() = PedidoViewModel::class.java
 

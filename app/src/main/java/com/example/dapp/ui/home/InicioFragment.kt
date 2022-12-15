@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.dapp.R
@@ -31,6 +32,7 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
                 binding.btnfetchData.text = "No hay pedidos"
             } else {
                 binding.btnfetchData.text = it.size.toString()
+                //binding.btnfetchData.text = it.get()
             }
         })
 
@@ -43,6 +45,10 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
             //hit API
             //@todo add input validations
             //viewModel.getArticulos()
+        }
+
+        binding.txtSalir.setOnClickListener {
+            findNavController().navigate(R.id.action_inicioFragment_to_loginFragment)
         }
     }
 

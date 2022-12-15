@@ -47,12 +47,17 @@ class PedidoAdapter(
 
             holder.recyclerviewPedidoBinding.root.setOnClickListener {
                 listener.onRecyclerViewItemClick(holder.recyclerviewPedidoBinding.root, pedidos[position])
+//                val action = PedidoFragmentDirections.actionPedidoFragmentToDetallePedidoFragment(
+//                    //holder.recyclerviewPedidoBinding.pedidoCodigo.text.toString()
+//                holder.recyclerviewPedidoBinding.pedidoCodigo.text
+//                )
+
             }
 
-            if (pedidos[position].procesando == 0) {
-                //holder.recyclerviewPedidoBinding.layoutItem.visibility= View.GONE
-                holder.recyclerviewPedidoBinding.cardView.visibility = View.GONE
-            }
+//            if (pedidos[position].procesando == 0) {
+//                //holder.recyclerviewPedidoBinding.layoutItem.visibility= View.GONE
+//                holder.recyclerviewPedidoBinding.cardView.visibility = View.GONE
+//            }
 
 
 

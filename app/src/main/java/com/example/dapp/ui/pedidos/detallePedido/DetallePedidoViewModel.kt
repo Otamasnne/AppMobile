@@ -17,9 +17,12 @@ class DetallePedidoViewModel (
     val detalleResponse : LiveData<List<Items>>
         get() = _detalleResponse
 
+
+
     fun getArticulos() = viewModelScope.launch {
         try {
             _detalleResponse.value = repository.getArticulos()
+            //_detalleResponse.value = repository.getArticulos().filter { it.pedido.title == "Pedido " + "3" }
         } catch (e: Exception){
             _detalleResponse.value = listOf()
         }

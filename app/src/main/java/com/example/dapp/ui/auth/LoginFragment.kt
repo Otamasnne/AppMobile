@@ -38,8 +38,8 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
                     findNavController().navigate(R.id.action_loginFragment_to_inicioFragment)
                 }
                 is Resource.Failure -> {
-                    //Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_SHORT).show()
-                    binding.btnIngresar.text = "probando"
+                    Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_SHORT).show()
+                    //binding.btnIngresar.text = "probando"
                     //Navegando hacia inicioFragment
                     //action_loginFragment_to_inicioFragment
                     //findNavController().navigate(R.id.action_loginFragment_to_inicioFragment)

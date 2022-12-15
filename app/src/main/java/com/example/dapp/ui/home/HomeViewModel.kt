@@ -29,7 +29,8 @@ class HomeViewModel(
     //LLamamos esta funcion en LoginFragment dentro de onView
     fun getPedidos() = viewModelScope.launch{
 
-        _pedidosResponse.value = repository.getPedidos()
+        //_pedidosResponse.value = repository.getPedidos()
+        _pedidosResponse.value = repository.getPedidos().filter { it.procesando == 1 }
     }
 
 

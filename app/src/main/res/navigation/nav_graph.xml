@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/pedidoFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -22,6 +22,11 @@
         <action
             android:id="@+id/action_inicioFragment_to_pedidoFragment"
             app:destination="@id/pedidoFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph.xml"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/pedidoFragment"
@@ -36,5 +41,11 @@
         android:id="@+id/detallePedidoFragment"
         android:name="com.example.dapp.ui.pedidos.detallePedido.DetallePedidoFragment"
         android:label="fragment_detalle_pedido"
-        tools:layout="@layout/fragment_detalle_pedido" />
+        tools:layout="@layout/fragment_detalle_pedido">
+        <argument
+            android:name="codigo"
+            app:argType="string"/>
+    </fragment>
+
+
 </navigation>

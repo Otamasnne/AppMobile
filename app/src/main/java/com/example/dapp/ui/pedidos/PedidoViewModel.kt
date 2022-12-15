@@ -33,7 +33,8 @@ class PedidoViewModel (
 
         //_pedidoResponse.value = repository.getPedidos()
         try {
-            _pedidoResponse.value = repository.getPedidos()
+            //_pedidoResponse.value = repository.getPedidos()
+            _pedidoResponse.value = repository.getPedidos().filter { it.procesando == 1 }
 
         } catch(e:Exception) {
 
