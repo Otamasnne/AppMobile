@@ -3,6 +3,7 @@ package com.example.dapp.network
 import com.example.dapp.responses.ArticulosResponseItem
 import com.example.dapp.responses.completar.Completar
 import com.example.dapp.responses.detalle.Items
+import com.example.dapp.responses.ingreso.Ingreso
 import com.example.dapp.responses.login.LoginRespondePH
 import com.example.dapp.responses.login.User
 import com.example.dapp.responses.login.UserDto
@@ -71,6 +72,12 @@ interface AuthApi {
     suspend fun getSingleArticulo(@Url href: String) : SingleArticulo
 
 
+    //Ingresos
+
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+    suspend fun getIngresos() : Response<List<Ingreso>>
 
 
 //    @Headers(
