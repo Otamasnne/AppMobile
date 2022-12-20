@@ -16,6 +16,10 @@ class PedidoRepository (
         api.getPedidoInicio()
     }
 
+    suspend fun getIngresos() = apiRequest {
+        api.getIngresos()
+    }
+
 
 
 //    suspend fun getCharacter(characterId: String): Result<Character> {
