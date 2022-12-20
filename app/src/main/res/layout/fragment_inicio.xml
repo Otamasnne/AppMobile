@@ -29,6 +29,12 @@
         tools:layout_editor_absoluteX="-38dp"
         tools:layout_editor_absoluteY="296dp" />
 
+    <Button
+        android:id="@+id/btnIngresos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnfetchData"/>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
