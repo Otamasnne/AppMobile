@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/fragment_pedido.xml" value="0.2653985507246377" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.10462962962962963" />
         <entry key="app/src/main/res/layout/recyclerview_detalle_pedido.xml" value="0.23697916666666666" />
-        <entry key="app/src/main/res/layout/recyclerview_pedido.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/recyclerview_pedido.xml" value="0.25" />
       </map>
     </option>
   </component>

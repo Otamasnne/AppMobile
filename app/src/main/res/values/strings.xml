@@ -2,4 +2,7 @@
     <string name="app_name">DApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titulo_pedidos">PEDIDOS</string>
+    <string name="str_completar">COMPLETAR</string>
+    <string name="str_detalle_pedido">DETALLE DE PEDIDO</string>
 </resources>

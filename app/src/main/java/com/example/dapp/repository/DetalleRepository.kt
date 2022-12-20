@@ -6,7 +6,11 @@ class DetalleRepository (
     private val api: AuthApi
         ) : BaseRepository() {
 
-    suspend fun getArticulos() = apiRequest {
-        api.getArticulos()
+    suspend fun getArticulos(id: String) = apiRequest {
+        api.getArticulos(id)
+    }
+
+    suspend fun completarPedido(codigo: String) = safeApiCall {
+        api.completarPedido(codigo)
     }
 }

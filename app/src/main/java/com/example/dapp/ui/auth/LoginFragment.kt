@@ -43,11 +43,11 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
                     //Navegando hacia inicioFragment
                     //action_loginFragment_to_inicioFragment
                     //findNavController().navigate(R.id.action_loginFragment_to_inicioFragment)
-
                 }
-
             }
         })
+
+
 
         //accedemos a nuestor viewModel
         binding.btnIngresar.setOnClickListener {
