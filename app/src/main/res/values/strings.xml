@@ -5,4 +5,5 @@
     <string name="titulo_pedidos">PEDIDOS</string>
     <string name="str_completar">COMPLETAR</string>
     <string name="str_detalle_pedido">DETALLE DE PEDIDO</string>
+    <string name="titulo_ingresos">INGRESOS</string>
 </resources>

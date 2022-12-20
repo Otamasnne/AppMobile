@@ -17,7 +17,7 @@ class IngresoViewModel (
         get() = _ingresoResponse
 
     fun getIngreso() = viewModelScope.launch {
-        
+
         try {
             _ingresoResponse.value = repository.getIngresos()
         }catch (e:Exception) {
