@@ -31,7 +31,8 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
             if (it.isEmpty()){
                 binding.btnfetchData.text = "No hay pedidos"
             } else {
-                binding.btnfetchData.text = it.size.toString()
+                //binding.btnfetchData.text = it.size.toString()
+                binding.btnfetchData.text = "Pedidos pendientes: " + it.size.toString()
                 //binding.btnfetchData.text = it.get()
             }
         })
@@ -41,7 +42,7 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
             if(it.isEmpty()){
                 binding.btnIngresos.text = "No hay ingresos"
             } else {
-                binding.btnIngresos.text = "Hay " + it.size.toString() + "pendientes"
+                binding.btnIngresos.text = "Ingresos Pendientes: " + it.size.toString()
             }
         })
 

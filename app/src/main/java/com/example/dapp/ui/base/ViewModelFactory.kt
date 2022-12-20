@@ -2,12 +2,10 @@ package com.example.dapp.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.dapp.repository.AuthRepository
-import com.example.dapp.repository.BaseRepository
-import com.example.dapp.repository.DetalleRepository
-import com.example.dapp.repository.PedidoRepository
+import com.example.dapp.repository.*
 import com.example.dapp.ui.auth.AuthViewModel
 import com.example.dapp.ui.home.HomeViewModel
+import com.example.dapp.ui.ingresos.IngresoViewModel
 import com.example.dapp.ui.pedidos.PedidoViewModel
 import com.example.dapp.ui.pedidos.detallePedido.DetallePedidoViewModel
 import java.lang.IllegalArgumentException
@@ -37,6 +35,9 @@ class ViewModelFactory(
 
             //pedidos detalle
             modelClass.isAssignableFrom(DetallePedidoViewModel::class.java) -> DetallePedidoViewModel(repository as DetalleRepository) as T
+
+            //Ingresos
+            modelClass.isAssignableFrom(IngresoViewModel::class.java) -> IngresoViewModel(repository as IngresoRepository) as T
 
             else -> throw IllegalArgumentException("ViewModelClass Not Found")
         }

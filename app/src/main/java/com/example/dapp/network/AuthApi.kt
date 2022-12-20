@@ -77,6 +77,7 @@ interface AuthApi {
     @Headers(
         "Authorization: Basic c3ZlbjpwYXNz",
         "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+    @GET("restful/services/depotapp.Ingresos/actions/listProcesando/invoke")
     suspend fun getIngresos() : Response<List<Ingreso>>
 
 
