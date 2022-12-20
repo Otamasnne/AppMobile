@@ -36,6 +36,15 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
             }
         })
 
+        viewModel.getIngresos()
+        viewModel.ingresosResponse.observe(viewLifecycleOwner, Observer {
+            if(it.isEmpty()){
+                binding.btnIngresos.text = "No hay ingresos"
+            } else {
+                binding.btnIngresos.text = "Hay " + it.size.toString() + "pendientes"
+            }
+        })
+
         //accedemos a nuestor viewModel
         binding.btnfetchData.setOnClickListener {
 //            val email = binding.etUser.text.toString().trim()
