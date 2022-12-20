@@ -60,6 +60,10 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
         binding.txtSalir.setOnClickListener {
             findNavController().navigate(R.id.action_inicioFragment_to_loginFragment)
         }
+
+        binding.btnIngresos.setOnClickListener {
+            findNavController().navigate(R.id.action_inicioFragment_to_ingresoFragment)
+        }
     }
 
     override fun getViewModel() = HomeViewModel::class.java

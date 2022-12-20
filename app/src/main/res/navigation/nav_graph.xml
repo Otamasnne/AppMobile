@@ -27,6 +27,9 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_inicioFragment_to_ingresoFragment"
+            app:destination="@id/ingresoFragment" />
     </fragment>
     <fragment
         android:id="@+id/pedidoFragment"
@@ -46,6 +49,11 @@
             android:name="codigo"
             app:argType="string"/>
     </fragment>
+    <fragment
+        android:id="@+id/ingresoFragment"
+        android:name="com.example.dapp.ui.ingresos.IngresoFragment"
+        android:label="fragment_ingreso"
+        tools:layout="@layout/fragment_ingreso" />
 
 
 </navigation>
