@@ -48,12 +48,37 @@
         <argument
             android:name="codigo"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_detallePedidoFragment_to_popUpPedidoFragment"
+            app:destination="@id/popUpPedidoFragment" />
     </fragment>
     <fragment
         android:id="@+id/ingresoFragment"
         android:name="com.example.dapp.ui.ingresos.IngresoFragment"
         android:label="fragment_ingreso"
-        tools:layout="@layout/fragment_ingreso" />
+        tools:layout="@layout/fragment_ingreso" >
+        <action
+            android:id="@+id/action_ingresoFragment_to_detalleIngresoFragment"
+            app:destination="@id/detalleIngresoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleIngresoFragment"
+        android:name="com.example.dapp.ui.ingresos.detalleIngresos.DetalleIngresoFragment"
+        android:label="fragment_detalle_ingreso"
+        tools:layout="@layout/fragment_detalle_ingreso">
+        <argument
+            android:name="codigo"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/popUpPedidoFragment"
+        android:name="com.example.dapp.ui.pedidos.popUpPedido.PopUpPedidoFragment"
+        android:label="fragment_pop_up_pedido"
+        tools:layout="@layout/fragment_pop_up_pedido">
+        <argument
+            android:name="href"
+            app:argType="string"/>
+    </fragment>
 
 
 </navigation>

@@ -43,18 +43,10 @@ class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Ped
                 it?.setHasFixedSize(true)
                 it?.adapter = PedidoAdapter(pedidos, this)
             }
-
             if (pedidos.isEmpty()) {
                 Toast.makeText(requireContext(), "No hay tareas pendientes", Toast.LENGTH_SHORT).show()
             }
-
-
-
         })
-
-
-
-
     }
 
 //    @BindingAdapter

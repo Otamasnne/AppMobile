@@ -6,8 +6,8 @@
     <data>
         <import type="android.view.View"/>
         <variable
-            name="ingreso"
-            type="com.example.dapp.responses.ingreso.Ingreso" />
+            name="articulo"
+            type="com.example.dapp.responses.detalle.Items" />
     </data>
 
     <LinearLayout
@@ -15,10 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_view"
+            android:id="@+id/card_view_detalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -37,39 +35,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp">
 
+
                     <TextView
-                        android:id="@+id/pedidoCodigo"
+                        android:id="@+id/ArticuloCodigo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="32dp"
                         android:layout_marginBottom="32dp"
-                        android:text="@{`PD - ` + ingreso.codigo}"
+                        android:text="@{articulo.articulo.title}"
                         android:textColor="@color/black"
-                        tools:text="213456"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="213456" />
 
-                    <ImageView
+
+                    <TextView
+                        android:id="@+id/pruebaArgs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="32dp"
+                        android:text="@{`Cantidad: ` + articulo.cantidad}"
+                        android:textSize="20sp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="70dp"
                         android:layout_marginEnd="32dp"
-                        android:layout_marginBottom="32dp"
-                        android:src="@drawable/ic_ingreso"
-                        />
+                        android:layout_marginBottom="32dp"/>
                 </RelativeLayout>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
 
     </LinearLayout>
 

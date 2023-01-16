@@ -11,7 +11,8 @@ import com.example.dapp.databinding.RecyclerviewDetallePedidoBinding
 import com.example.dapp.responses.detalle.Items
 
 class DetallePedidoAdapter (
-    private val articulos: List<Items>
+    private val articulos: List<Items>,
+    private val listener: RecyclerViewDPClickListener
         ) : RecyclerView.Adapter<DetallePedidoAdapter.DetallePedidoViewHolder>(){
 
             inner class  DetallePedidoViewHolder(
@@ -47,6 +48,10 @@ class DetallePedidoAdapter (
 //            holder.recviewDetallePedidoBinding.cardViewDetalle.visibility = View.GONE
 //        }
         holder.recviewDetallePedidoBinding.articulo = articulos[position]
+
+        holder.recviewDetallePedidoBinding.root.setOnClickListener {
+            listener.onRecyclerViewItemClick(holder.recviewDetallePedidoBinding.root, articulos[position])
+        }
 
     }
 

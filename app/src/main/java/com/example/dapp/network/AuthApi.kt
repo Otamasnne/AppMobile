@@ -68,6 +68,9 @@ interface AuthApi {
     @GET("restful/services/depotapp.Pedidos/actions/listItems/invoke")
     suspend fun getArticulos(@Query("codigo") codigo: String) : Response<List<Items>>
 
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
     @GET
     suspend fun getSingleArticulo(@Url href: String) : SingleArticulo
 
@@ -80,6 +83,18 @@ interface AuthApi {
     @GET("restful/services/depotapp.Ingresos/actions/listProcesando/invoke")
     suspend fun getIngresos() : Response<List<Ingreso>>
 
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+    @GET("restful/services/depotapp.Ingresos/actions/listItems/invoke")
+    suspend fun getArticulosIngreso(@Query("codigo") codigo: String) : Response<List<Items>>
+
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Content-Type: application/json",
+        "Accept: application/json")
+    @POST("restful/objects/depotapp.Ingreso/{codigo}/actions/completar/invoke")
+    suspend fun completarIngreso(@Path("codigo") codigo: String) : Completar
 
 //    @Headers(
 //        "Authorization: Basic c3ZlbjpwYXNz",

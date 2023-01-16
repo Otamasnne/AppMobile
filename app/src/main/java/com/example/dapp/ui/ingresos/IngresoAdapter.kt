@@ -8,9 +8,11 @@ import com.example.dapp.R
 import com.example.dapp.databinding.FragmentIngresoBinding
 import com.example.dapp.databinding.RecyclerviewIngresoBinding
 import com.example.dapp.responses.ingreso.Ingreso
+import com.example.dapp.ui.pedidos.RecyclerViewClickListener
 
 class IngresoAdapter (
-    private val ingresos: List<Ingreso>
+    private val ingresos: List<Ingreso>,
+    private var listener: RecyclerViewIngresoClickListener
 ) : RecyclerView.Adapter<IngresoAdapter.IngresoViewHolder>() {
 
     inner class IngresoViewHolder(
@@ -30,6 +32,11 @@ class IngresoAdapter (
 
     override fun onBindViewHolder(holder: IngresoViewHolder, position: Int) {
         holder.recyclerViewIngresoBinding.ingreso = ingresos[position]
+
+        holder.recyclerViewIngresoBinding.root.setOnClickListener {
+            listener.onRecyclerViewItemClick(holder.recyclerViewIngresoBinding.root,
+            ingresos[position])
+        }
     }
 
     override fun getItemCount() = ingresos.size

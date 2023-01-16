@@ -9,4 +9,12 @@ class IngresoRepository (
     suspend fun getIngresos() = apiRequest {
         api.getIngresos()
     }
+
+    suspend fun getArticulosIngreso(codigo: String) = apiRequest {
+        api.getArticulosIngreso(codigo)
+    }
+
+    suspend fun completarIngreso(codigo: String) = safeApiCall {
+        api.completarIngreso(codigo)
+    }
 }

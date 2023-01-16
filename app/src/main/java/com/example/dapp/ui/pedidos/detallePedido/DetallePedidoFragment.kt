@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,15 +13,17 @@ import com.example.dapp.databinding.FragmentDetallePedidoBinding
 import com.example.dapp.network.AuthApi
 import com.example.dapp.network.Resource
 import com.example.dapp.repository.DetalleRepository
+import com.example.dapp.responses.detalle.Items
 import com.example.dapp.ui.base.BaseFragment
 import com.example.dapp.ui.pedidos.PedidoAdapter
 import com.example.dapp.ui.pedidos.PedidoViewModel
+import com.example.dapp.ui.pedidos.popUpPedido.PopUpPedidoFragment
 import java.util.Locale.filter
 
 class DetallePedidoFragment : BaseFragment<
         DetallePedidoViewModel,
         FragmentDetallePedidoBinding,
-        DetalleRepository>() {
+        DetalleRepository>(), RecyclerViewDPClickListener {
 
     private lateinit var codigoPedido: String
 
@@ -51,7 +54,7 @@ class DetallePedidoFragment : BaseFragment<
             recycler.also{
                 it?.layoutManager = LinearLayoutManager(requireContext())
                 it?.setHasFixedSize(true)
-                it?.adapter = DetallePedidoAdapter(articulos)
+                it?.adapter = DetallePedidoAdapter(articulos,this)
             }
 
 //            if (pedidos.isEmpty()) {
@@ -77,6 +80,14 @@ class DetallePedidoFragment : BaseFragment<
     }
 
 
+    override fun onRecyclerViewItemClick(view: View, item: Items) {
+        super.onRecyclerViewItemClick(view, item)
+
+        val action = DetallePedidoFragmentDirections.actionDetallePedidoFragmentToPopUpPedidoFragment(item.articulo.href)
+        findNavController().navigate(action)
+//        val showPopUp = PopUpPedidoFragment()
+//        showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
+    }
 
     override fun getViewModel(): Class<DetallePedidoViewModel> = DetallePedidoViewModel::class.java
 
