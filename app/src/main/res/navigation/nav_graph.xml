@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.dapp.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.dapp.ui.home.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_pedidoFragment"
+            app:destination="@id/pedidoFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph.xml"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_inicioFragment_to_ingresoFragment"
+            app:destination="@id/ingresoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pedidoFragment"
+        android:name="com.example.dapp.ui.pedidos.PedidoFragment"
+        android:label="fragment_pedido"
+        tools:layout="@layout/fragment_pedido" >
+        <action
+            android:id="@+id/action_pedidoFragment_to_detallePedidoFragment"
+            app:destination="@id/detallePedidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallePedidoFragment"
+        android:name="com.example.dapp.ui.pedidos.detallePedido.DetallePedidoFragment"
+        android:label="fragment_detalle_pedido"
+        tools:layout="@layout/fragment_detalle_pedido">
+        <argument
+            android:name="codigo"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_detallePedidoFragment_to_popUpPedidoFragment"
+            app:destination="@id/popUpPedidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ingresoFragment"
+        android:name="com.example.dapp.ui.ingresos.IngresoFragment"
+        android:label="fragment_ingreso"
+        tools:layout="@layout/fragment_ingreso" >
+        <action
+            android:id="@+id/action_ingresoFragment_to_detalleIngresoFragment"
+            app:destination="@id/detalleIngresoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleIngresoFragment"
+        android:name="com.example.dapp.ui.ingresos.detalleIngresos.DetalleIngresoFragment"
+        android:label="fragment_detalle_ingreso"
+        tools:layout="@layout/fragment_detalle_ingreso">
+        <argument
+            android:name="codigo"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/popUpPedidoFragment"
+        android:name="com.example.dapp.ui.pedidos.popUpPedido.PopUpPedidoFragment"
+        android:label="fragment_pop_up_pedido"
+        tools:layout="@layout/fragment_pop_up_pedido">
+        <argument
+            android:name="href"
+            app:argType="string"/>
+    </fragment>
+
+
+</navigation>
