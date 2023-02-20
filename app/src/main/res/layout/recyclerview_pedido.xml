@@ -63,6 +63,8 @@
                         android:layout_marginBottom="32dp"
                         android:src="@drawable/ic_martillo"
                         />
+
+
                 </RelativeLayout>
 
             </LinearLayout>

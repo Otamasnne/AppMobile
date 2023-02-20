@@ -17,6 +17,7 @@ import retrofit2.create
 
 class RemoteDataSource {
     companion object {
+        private const val WEB_URL = "http://depotapp-env.eba-p7aerjjc.sa-east-1.elasticbeanstalk.com/"
         private const val BASE_URL = "http://192.168.18.99:8080/"
         private const val URL_EMU = "http://10.0.2.2:8080/"
     }

@@ -16,7 +16,7 @@ class AuthViewModel(
     private val repository: AuthRepository
 ) : ViewModel(){
 
-    //MutableLiveDa ta where we can put the value
+    //MutableLiveData where we can put the value
     private val _loginResponse : MutableLiveData<Resource<User>> = MutableLiveData()
     //LiveData que accede desde afuera de la clase
     val loginResponse: LiveData<Resource<User>>

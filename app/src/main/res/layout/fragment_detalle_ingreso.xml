@@ -29,6 +29,7 @@
 
     <Button
         android:id="@+id/btnCompletar"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,5 +38,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/str_completar"
         />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Esta seguro?"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnAreSureY"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="200dp"-->
+<!--        android:text="SI"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:backgroundTint="@color/green"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/btnAreSureN"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/btnCompletar"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/recycler_view_detalle_ingreso" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnAreSureN"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="200dp"-->
+<!--        android:text="NO"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:backgroundTint="@color/red"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@id/btnAreSureY"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/recycler_view_detalle_ingreso" />-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

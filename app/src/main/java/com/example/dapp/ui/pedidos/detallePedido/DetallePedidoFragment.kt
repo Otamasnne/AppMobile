@@ -1,5 +1,6 @@
 package com.example.dapp.ui.pedidos.detallePedido
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dapp.R
 import com.example.dapp.databinding.FragmentDetallePedidoBinding
 import com.example.dapp.network.AuthApi
 import com.example.dapp.network.Resource
@@ -26,7 +28,8 @@ class DetallePedidoFragment : BaseFragment<
         DetalleRepository>(), RecyclerViewDPClickListener {
 
     private lateinit var codigoPedido: String
-
+    //Crear AlertDialog
+    private lateinit var builder: AlertDialog.Builder
 
     companion object {
         const val CODIGO = "codigo"
@@ -65,7 +68,8 @@ class DetallePedidoFragment : BaseFragment<
         viewModel.completarResponse.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), "Operacion Exitosa", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireContext(), "Operacion Exitosa", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_detallePedidoFragment_to_inicioFragment)
 
                 }
                 is Resource.Failure -> {
@@ -74,17 +78,43 @@ class DetallePedidoFragment : BaseFragment<
             }
         })
 
+        //Are you sure
+        builder = AlertDialog.Builder(context)
+
         binding.btnCompletar.setOnClickListener {
-            viewModel.completarPedido(codigoPedido)
+            //viewModel.completarIngreso(codigoIngreso)
+            //binding.btnCompletar.visibility = View.INVISIBLE
+            //binding.btnAreSureY.visibility = View.VISIBLE
+
+            builder.setTitle("Atencion!")
+                .setMessage("Queres completar este pedido?")
+                .setCancelable(true)
+                .setPositiveButton("Si"){dialogInterface, it ->
+                    viewModel.completarPedido(codigoPedido)
+                    Toast.makeText(context, "Pedido Enviado",Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("No"){dialogInterface, it ->
+                    dialogInterface.cancel()
+                }
+                //show the builder
+                .show()
         }
+
+//        binding.btnCompletar.setOnClickListener {
+//            viewModel.completarPedido(codigoPedido)
+//        }
     }
 
 
     override fun onRecyclerViewItemClick(view: View, item: Items) {
         super.onRecyclerViewItemClick(view, item)
 
-        val action = DetallePedidoFragmentDirections.actionDetallePedidoFragmentToPopUpPedidoFragment(item.articulo.href)
-        findNavController().navigate(action)
+            builder.setTitle("Articulo")
+                .setMessage("Ubicacion")
+                .setCancelable(true)
+                .show()
+//        val action = DetallePedidoFragmentDirections.actionDetallePedidoFragmentToPopUpPedidoFragment(item.articulo.href)
+//        findNavController().navigate(action)
 //        val showPopUp = PopUpPedidoFragment()
 //        showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
     }

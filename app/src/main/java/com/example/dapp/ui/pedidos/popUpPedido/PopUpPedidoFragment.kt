@@ -54,6 +54,7 @@ class PopUpPedidoFragment : BaseFragment<
                     Toast.makeText(requireContext(), "Operacion Fallida", Toast.LENGTH_SHORT).show()
 
                 }
+
             }
         })
     }

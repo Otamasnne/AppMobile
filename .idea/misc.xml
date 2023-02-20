@@ -18,7 +18,7 @@
         <entry key="app/src/main/res/layout/recyclerview_detalle_ingreso.xml" value="0.3072916666666667" />
         <entry key="app/src/main/res/layout/recyclerview_detalle_pedido.xml" value="0.22" />
         <entry key="app/src/main/res/layout/recyclerview_ingreso.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/recyclerview_pedido.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/recyclerview_pedido.xml" value="0.33" />
       </map>
     </option>
   </component>

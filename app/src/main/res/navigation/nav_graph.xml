@@ -51,6 +51,13 @@
         <action
             android:id="@+id/action_detallePedidoFragment_to_popUpPedidoFragment"
             app:destination="@id/popUpPedidoFragment" />
+        <action
+            android:id="@+id/action_detallePedidoFragment_to_pedidoFragment"
+            app:destination="@id/pedidoFragment"
+            />
+        <action
+            android:id="@+id/action_detallePedidoFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/ingresoFragment"
@@ -69,6 +76,12 @@
         <argument
             android:name="codigo"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_detalleIngresoFragment_to_ingresoFragment"
+            app:destination="@id/ingresoFragment" />
+        <action
+            android:id="@+id/action_detalleIngresoFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/popUpPedidoFragment"
