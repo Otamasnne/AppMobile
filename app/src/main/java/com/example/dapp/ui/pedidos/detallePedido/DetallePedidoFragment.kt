@@ -19,7 +19,6 @@ import com.example.dapp.responses.detalle.Items
 import com.example.dapp.ui.base.BaseFragment
 import com.example.dapp.ui.pedidos.PedidoAdapter
 import com.example.dapp.ui.pedidos.PedidoViewModel
-import com.example.dapp.ui.pedidos.popUpPedido.PopUpPedidoFragment
 import java.util.Locale.filter
 
 class DetallePedidoFragment : BaseFragment<

@@ -10,7 +10,6 @@ import com.example.dapp.ui.ingresos.IngresoViewModel
 import com.example.dapp.ui.ingresos.detalleIngresos.DetalleIngresoViewModel
 import com.example.dapp.ui.pedidos.PedidoViewModel
 import com.example.dapp.ui.pedidos.detallePedido.DetallePedidoViewModel
-import com.example.dapp.ui.pedidos.popUpPedido.PopUpPedidoViewModel
 import java.lang.IllegalArgumentException
 
 // single viewModelFactory que es responsable de proveer todos los viewModels
@@ -46,7 +45,7 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(DetalleIngresoViewModel::class.java) -> DetalleIngresoViewModel(repository as IngresoRepository) as T
 
             //PopUp
-            modelClass.isAssignableFrom(PopUpPedidoViewModel::class.java) -> PopUpPedidoViewModel(repository as ArticuloRepository) as T
+            //modelClass.isAssignableFrom(PopUpPedidoViewModel::class.java) -> PopUpPedidoViewModel(repository as ArticuloRepository) as T
 
             else -> throw IllegalArgumentException("ViewModelClass Not Found")
         }
