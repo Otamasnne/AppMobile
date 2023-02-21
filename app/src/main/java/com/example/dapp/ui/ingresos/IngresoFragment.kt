@@ -25,6 +25,8 @@ class IngresoFragment : BaseFragment<IngresoViewModel, FragmentIngresoBinding, I
 
         val recycler = binding.recyclerViewIngresos
         viewModel.getIngreso()
+
+
         viewModel.ingresoResponse.observe(viewLifecycleOwner, Observer { ingresos ->
 
             recycler.also {
@@ -37,6 +39,8 @@ class IngresoFragment : BaseFragment<IngresoViewModel, FragmentIngresoBinding, I
                 Toast.makeText(requireContext(), "No hay tareas pendientes", Toast.LENGTH_SHORT).show()
             }
         })
+
+        refreshApp()
     }
 
     override fun onRecyclerViewItemClick(view: View, ingreso: Ingreso) {
@@ -44,6 +48,14 @@ class IngresoFragment : BaseFragment<IngresoViewModel, FragmentIngresoBinding, I
 
         val action = IngresoFragmentDirections.actionIngresoFragmentToDetalleIngresoFragment(ingreso.codigo)
         findNavController().navigate(action)
+    }
+
+    private fun refreshApp(){
+        binding.swipe.setOnRefreshListener {
+            //Toast.makeText(context, "swipe",  Toast.LENGTH_SHORT).show()
+            viewModel.getIngreso()
+            binding.swipe.isRefreshing = false
+        }
     }
 
     override fun getViewModel() = IngresoViewModel::class.java

@@ -66,6 +66,11 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
         }
     }
 
+
+    private fun refreshApp(){
+
+    }
+
     override fun getViewModel() = HomeViewModel::class.java
 
     override fun getFragmentBinding(

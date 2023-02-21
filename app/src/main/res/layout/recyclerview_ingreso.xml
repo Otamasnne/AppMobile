@@ -10,6 +10,8 @@
             type="com.example.dapp.responses.ingreso.Ingreso" />
     </data>
 
+
+
     <LinearLayout
         android:id="@+id/layout_item"
         android:layout_width="match_parent"
