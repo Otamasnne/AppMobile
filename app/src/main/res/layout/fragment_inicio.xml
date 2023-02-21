@@ -13,16 +13,43 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="370dp"
+        android:layout_height="445dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintVertical_bias="0.617">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnfetchData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pedidos"
+                app:layout_constraintBottom_toTopOf="@id/btnIngresos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnIngresos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="99dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnfetchData" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <ImageView
+    <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,22 +59,9 @@
             android:src="@drawable/logo" />
 
 
-        <Button
-            android:id="@+id/btnfetchData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
-            android:text="Pedidos"
-            tools:layout_editor_absoluteX="-38dp"
-            tools:layout_editor_absoluteY="296dp" />
 
-        <Button
-            android:id="@+id/btnIngresos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/btnfetchData"/>
 
-        <ImageView
+    <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_exit_to_app_24"
@@ -69,3 +83,6 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    tools:layout_editor_absoluteX="-38dp"-->
+<!--    tools:layout_editor_absoluteY="296dp"-->

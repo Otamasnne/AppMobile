@@ -64,11 +64,17 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
         binding.btnIngresos.setOnClickListener {
             findNavController().navigate(R.id.action_inicioFragment_to_ingresoFragment)
         }
+
+        refreshApp()
     }
 
 
     private fun refreshApp(){
-
+        binding.swipe.setOnRefreshListener {
+            viewModel.getIngresos()
+            viewModel.getPedidos()
+            binding.swipe.isRefreshing = false
+        }
     }
 
     override fun getViewModel() = HomeViewModel::class.java
