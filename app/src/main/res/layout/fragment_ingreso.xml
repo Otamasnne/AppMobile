@@ -29,6 +29,29 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/_56x256"
+        android:id="@+id/taskDone"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/layoutIngreso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTaskdone"
+        android:visibility="gone"
+        android:text="Sin Tareas Pendientes"
+        app:layout_constraintTop_toBottomOf="@id/taskDone"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
         android:id="@+id/layoutIngreso"
         android:layout_width="wrap_content"
