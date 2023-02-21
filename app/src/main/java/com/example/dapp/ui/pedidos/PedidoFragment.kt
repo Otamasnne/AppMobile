@@ -47,6 +47,8 @@ class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Ped
                 Toast.makeText(requireContext(), "No hay tareas pendientes", Toast.LENGTH_SHORT).show()
             }
         })
+
+        refreshApp()
     }
 
 //    @BindingAdapter
@@ -64,14 +66,12 @@ class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Ped
 
     }
 
-//    override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
-//        val item = list.get(position)
-//        holder.button.text = item.toString()
-//        holder.button.setOnClickListener {
-//            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
-//            holder.view.findNavController().navigate(action)
-//        }
-//    }
+    private fun refreshApp() {
+        binding.swipe.setOnRefreshListener {
+            viewModel.getPedido()
+            binding.swipe.isRefreshing = false
+        }
+    }
 
     override fun getViewModel() = PedidoViewModel::class.java
 
