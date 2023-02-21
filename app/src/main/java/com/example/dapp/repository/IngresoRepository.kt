@@ -17,4 +17,8 @@ class IngresoRepository (
     suspend fun completarIngreso(codigo: String) = safeApiCall {
         api.completarIngreso(codigo)
     }
+
+    suspend fun getSingleArticulo(href: String) = safeApiCall {
+        api.getSingleArticulo(href)
+    }
 }

@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dapp.R
 import com.example.dapp.databinding.RecyclerviewDetalleIngresoBinding
 import com.example.dapp.responses.detalle.Items
+import com.example.dapp.ui.pedidos.detallePedido.RecyclerViewDPClickListener
 
 class DetalleIngresoAdapter (
-    private val articulos: List<Items>
+    private val articulos: List<Items>,
+    private val listener: RecyclerViewDPClickListener
         ) : RecyclerView.Adapter<DetalleIngresoAdapter.DetalleIngresoViewHolder>() {
 
     inner class DetalleIngresoViewHolder(
@@ -29,6 +31,10 @@ class DetalleIngresoAdapter (
 
 
         holder.recyclerViewDetalleIngresoBinding.articulo = articulos[position]
+
+        holder.recyclerViewDetalleIngresoBinding.root.setOnClickListener {
+            listener.onRecyclerViewItemClick(holder.recyclerViewDetalleIngresoBinding.root, articulos[position])
+        }
     }
 
     override fun getItemCount() = articulos.size

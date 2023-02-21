@@ -13,4 +13,8 @@ class DetalleRepository (
     suspend fun completarPedido(codigo: String) = safeApiCall {
         api.completarPedido(codigo)
     }
+
+    suspend fun getSingleArticulo(href: String) = safeApiCall {
+        api.getSingleArticulo(href)
+    }
 }

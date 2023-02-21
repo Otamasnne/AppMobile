@@ -25,10 +25,16 @@ class DetallePedidoViewModel (
     val completarResponse : LiveData<Resource<Completar>>
         get() = _completarResponse
 
-    //foco articulo
+//    //foco articulo
+//
+//    private val _articuloResponse: MutableLiveData<SingleArticulo> = MutableLiveData()
+//    val articuloResponse : LiveData<SingleArticulo>
+//        get() = _articuloResponse
 
-    private val _articuloResponse: MutableLiveData<SingleArticulo> = MutableLiveData()
-    val articuloResponse : LiveData<SingleArticulo>
+    //single articulo
+    //Get single articulo
+    private val _articuloResponse : MutableLiveData<Resource<SingleArticulo>> = MutableLiveData()
+    val articuloResponse : LiveData<Resource<SingleArticulo>>
         get() = _articuloResponse
 
 
@@ -51,6 +57,10 @@ class DetallePedidoViewModel (
     fun completarPedido(codigo: String) = viewModelScope.launch {
 
         _completarResponse.value = repository.completarPedido(codigo)
+    }
+
+    fun getSingleArticulo(href: String) = viewModelScope.launch {
+        _articuloResponse.value = repository.getSingleArticulo(href)
     }
 
 

@@ -109,10 +109,24 @@ class DetallePedidoFragment : BaseFragment<
     override fun onRecyclerViewItemClick(view: View, item: Items) {
         super.onRecyclerViewItemClick(view, item)
 
-            builder.setTitle("Articulo")
-                .setMessage("Ubicacion")
-                .setCancelable(true)
-                .show()
+        viewModel.getSingleArticulo(item.articulo.href)
+        viewModel.articuloResponse.observe(viewLifecycleOwner, Observer {
+            when(it) {
+                is Resource.Success -> {
+//                    binding.txtPop.text =  it.value.descripcion
+//                    binding.txtUbicacionTitle.text = "Ubicacion: " + it.value.ubicacion.title
+
+                    builder.setTitle(it.value.descripcion)
+                        .setMessage("Ubicacion: " +  it.value.ubicacion.title)
+                        .setCancelable(true)
+                        .show()
+                }
+                is Resource.Failure -> {
+                    Toast.makeText(requireContext(), "Operacion Fallida", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        })
 //        val action = DetallePedidoFragmentDirections.actionDetallePedidoFragmentToPopUpPedidoFragment(item.articulo.href)
 //        findNavController().navigate(action)
 //        val showPopUp = PopUpPedidoFragment()

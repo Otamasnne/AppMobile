@@ -14,14 +14,16 @@ import com.example.dapp.databinding.FragmentDetalleIngresoBinding
 import com.example.dapp.network.AuthApi
 import com.example.dapp.network.Resource
 import com.example.dapp.repository.IngresoRepository
+import com.example.dapp.responses.detalle.Items
 import com.example.dapp.responses.ingreso.Ingreso
 import com.example.dapp.ui.base.BaseFragment
 import com.example.dapp.ui.pedidos.detallePedido.DetallePedidoFragment.Companion.CODIGO
+import com.example.dapp.ui.pedidos.detallePedido.RecyclerViewDPClickListener
 
 class DetalleIngresoFragment : BaseFragment<
         DetalleIngresoViewModel,
         FragmentDetalleIngresoBinding,
-        IngresoRepository> () {
+        IngresoRepository, > (), RecyclerViewDPClickListener {
 
     private lateinit var codigoIngreso: String
 
@@ -46,11 +48,12 @@ class DetalleIngresoFragment : BaseFragment<
         val recycler = binding.recyclerViewDetalleIngreso
         viewModel.getArticulosIngreso(codigoIngreso)
 
+
         viewModel.ingresoDetalleResponse.observe(viewLifecycleOwner, Observer { articulos ->
             recycler.also {
                 it.layoutManager = LinearLayoutManager(requireContext())
                 it.setHasFixedSize(true)
-                it.adapter = DetalleIngresoAdapter(articulos)
+                it.adapter = DetalleIngresoAdapter(articulos,this)
             }
         })
 
@@ -65,6 +68,7 @@ class DetalleIngresoFragment : BaseFragment<
                 }
             }
         })
+
 
         //Are you sure
         builder = AlertDialog.Builder(context)
@@ -87,6 +91,34 @@ class DetalleIngresoFragment : BaseFragment<
             //show the builder
                 .show()
         }
+    }
+
+    override fun onRecyclerViewItemClick(view: View, item: Items) {
+        super.onRecyclerViewItemClick(view, item)
+
+        viewModel.getSingleArticulo(item.articulo.href)
+        viewModel.articuloResponse.observe(viewLifecycleOwner, Observer {
+            when(it) {
+                is Resource.Success -> {
+//                    binding.txtPop.text =  it.value.descripcion
+//                    binding.txtUbicacionTitle.text = "Ubicacion: " + it.value.ubicacion.title
+
+                    builder.setTitle(it.value.descripcion)
+                        .setMessage("Ubicacion: " +  it.value.ubicacion.title)
+                        .setCancelable(true)
+                        .show()
+                }
+                is Resource.Failure -> {
+                    Toast.makeText(requireContext(), "Operacion Fallida", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        })
+
+//        val action = DetallePedidoFragmentDirections.actionDetallePedidoFragmentToPopUpPedidoFragment(item.articulo.href)
+//        findNavController().navigate(action)
+//        val showPopUp = PopUpPedidoFragment()
+//        showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
     }
 
 
