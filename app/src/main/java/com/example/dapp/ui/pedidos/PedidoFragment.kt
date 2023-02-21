@@ -44,7 +44,12 @@ class PedidoFragment  : BaseFragment<PedidoViewModel, FragmentPedidoBinding, Ped
                 it?.adapter = PedidoAdapter(pedidos, this)
             }
             if (pedidos.isEmpty()) {
-                Toast.makeText(requireContext(), "No hay tareas pendientes", Toast.LENGTH_SHORT).show()
+                binding.taskDone.visibility = View.VISIBLE
+                binding.txtTaskdone.visibility = View.VISIBLE
+                //Toast.makeText(requireContext(), "No hay tareas pendientes", Toast.LENGTH_SHORT).show()
+            }else {
+                binding.taskDone.visibility = View.GONE
+                binding.txtTaskdone.visibility = View.GONE
             }
         })
 
