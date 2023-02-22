@@ -57,9 +57,13 @@ class InicioFragment : BaseFragment<HomeViewModel, FragmentInicioBinding, Pedido
             //viewModel.getArticulos()
         }
 
-        binding.txtSalir.setOnClickListener {
+        binding.imgSalir.setOnClickListener {
             findNavController().navigate(R.id.action_inicioFragment_to_loginFragment)
         }
+
+//        binding.txtSalir.setOnClickListener {
+//            findNavController().navigate(R.id.action_inicioFragment_to_loginFragment)
+//        }
 
         binding.btnIngresos.setOnClickListener {
             findNavController().navigate(R.id.action_inicioFragment_to_ingresoFragment)

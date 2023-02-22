@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp"
+    android:layout_margin="0dp"
     android:gravity="center"
     tools:context=".ui.home.InicioFragment">
 
@@ -13,8 +13,9 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
-        android:layout_width="370dp"
-        android:layout_height="445dp"
+        android:layout_width="409dp"
+        android:layout_height="496dp"
+        android:background="@drawable/project2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +28,9 @@
 
             <Button
                 android:id="@+id/btnfetchData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pedidos"
+                android:layout_width="133dp"
+                android:layout_height="133dp"
+                android:text="PEDIDOS PENDIENTES: 1"
                 app:layout_constraintBottom_toTopOf="@id/btnIngresos"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,8 +38,8 @@
 
             <Button
                 android:id="@+id/btnIngresos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="133dp"
+                android:layout_height="133dp"
                 android:layout_marginBottom="99dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,31 +51,30 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/logo" />
-
-
+        android:id="@+id/imageView"
+        android:layout_width="375dp"
+        android:layout_height="222dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_exit_to_app_24"
-            app:layout_constraintBottom_toTopOf="@id/txtSalir"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_baseline_exit_to_app_24_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imgSalir"/>
 
-        <TextView
-            android:id="@+id/txtSalir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="SALIR"/>
+<!--        <TextView-->
+<!--            android:id="@+id/txtSalir"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:text="SALIR"/>-->
 
 
 

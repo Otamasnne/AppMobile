@@ -3,15 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp"
+    android:layout_margin="0dp"
     android:gravity="center"
-    tools:context=".ui.auth.LoginFragment">
+    tools:context=".ui.auth.LoginFragment"
+    android:background="@drawable/project_1">
 
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="DepotApp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="40dp"
         android:gravity="center"
         android:layout_marginBottom="20dp"
