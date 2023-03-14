@@ -109,7 +109,7 @@ class DetallePedidoFragment : BaseFragment<
         super.onRecyclerViewItemClick(view, item)
 
         builder = AlertDialog.Builder(context)
-        
+
         viewModel.getSingleArticulo(item.articulo.href)
         viewModel.articuloResponse.observe(viewLifecycleOwner, Observer {
             when(it) {
