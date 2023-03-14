@@ -26,6 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvLogin"
         android:hint="Usuario"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:layout_marginBottom="10dp"
 
         />
@@ -36,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etUser"
         android:hint="Contraseña"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:layout_marginBottom="20dp"
         android:inputType="textPassword"
 
@@ -46,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etPassword"
+        android:backgroundTint="@color/celeste"
+        android:textColor="@color/white"
         android:text="Ingresar"
         />
 

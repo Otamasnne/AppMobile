@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="0dp"
     android:gravity="center"
+    android:background="@color/white"
     tools:context=".ui.home.InicioFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,7 +14,7 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="496dp"
         android:background="@drawable/project2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +31,8 @@
                 android:id="@+id/btnfetchData"
                 android:layout_width="133dp"
                 android:layout_height="133dp"
-                android:text="PEDIDOS PENDIENTES: 1"
+                android:backgroundTint="@color/celeste"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@id/btnIngresos"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +43,8 @@
                 android:layout_width="133dp"
                 android:layout_height="133dp"
                 android:layout_marginBottom="99dp"
+                android:backgroundTint="#25C9DF"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +56,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="375dp"
-        android:layout_height="222dp"
+        android:layout_width="match_parent"
+        android:layout_height="233dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

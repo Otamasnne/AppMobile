@@ -8,28 +8,22 @@
     android:background="@color/grey">
 
 
-
-
-
-
-
-
-
     <TextView
         android:id="@+id/txt_titulo_detalle_ingreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:text="@string/str_detalle_ingreso"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/recycler_view_detalle_ingreso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/str_detalle_ingreso"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_detalle_ingreso"
-        android:layout_width="414dp"
-        android:layout_height="654dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toTopOf="@id/btnCompletar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,15 +31,17 @@
 
     <Button
         android:id="@+id/btnCompletar"
-        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="-10dp"
+        android:backgroundTint="@color/celeste"
+        android:text="@string/str_completar"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_detalle_ingreso"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="@string/str_completar"
-        />
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_detalle_ingreso" />
 
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
