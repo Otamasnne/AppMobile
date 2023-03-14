@@ -96,6 +96,7 @@ class DetalleIngresoFragment : BaseFragment<
     override fun onRecyclerViewItemClick(view: View, item: Items) {
         super.onRecyclerViewItemClick(view, item)
 
+        builder = AlertDialog.Builder(context)
         viewModel.getSingleArticulo(item.articulo.href)
         viewModel.articuloResponse.observe(viewLifecycleOwner, Observer {
             when(it) {
@@ -104,7 +105,7 @@ class DetalleIngresoFragment : BaseFragment<
 //                    binding.txtUbicacionTitle.text = "Ubicacion: " + it.value.ubicacion.title
 
                     builder.setTitle(it.value.descripcion)
-                        .setMessage("Ubicacion: " +  it.value.ubicacion.title)
+                        .setMessage(" " +  it.value.ubicacion.title)
                         .setCancelable(true)
                         .show()
                 }

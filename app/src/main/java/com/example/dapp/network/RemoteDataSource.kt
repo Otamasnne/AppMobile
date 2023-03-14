@@ -62,7 +62,7 @@ class RemoteDataSource {
         api : Class<Api>
     ) : Api {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(WEB_URL)
             .client(
                 OkHttpClient.Builder().also { client ->
                     if(BuildConfig.DEBUG) {
