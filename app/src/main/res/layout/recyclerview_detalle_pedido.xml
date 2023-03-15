@@ -33,7 +33,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/ArticuloCodigo"
@@ -70,8 +70,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="47dp"
-                        android:layout_marginBottom="34dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="0dp"
                         android:text="" />
                 </RelativeLayout>
 

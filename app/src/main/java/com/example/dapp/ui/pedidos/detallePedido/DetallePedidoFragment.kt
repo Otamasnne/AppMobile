@@ -30,6 +30,7 @@ class DetallePedidoFragment : BaseFragment<
     //Crear AlertDialog
     private lateinit var builder: AlertDialog.Builder
 
+    var alertCount = 0
     companion object {
         const val CODIGO = "codigo"
 
@@ -85,6 +86,8 @@ class DetallePedidoFragment : BaseFragment<
             //binding.btnCompletar.visibility = View.INVISIBLE
             //binding.btnAreSureY.visibility = View.VISIBLE
 
+
+
             builder.setTitle("Atencion!")
                 .setMessage("Queres completar este pedido?")
                 .setCancelable(true)
@@ -114,13 +117,18 @@ class DetallePedidoFragment : BaseFragment<
         viewModel.articuloResponse.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is Resource.Success -> {
+
+                    if(alertCount == 0){
+                        createDialog(it.value.descripcion, it.value.ubicacion.title)
+                        alertCount =+ 1
+                    }
 //                    binding.txtPop.text =  it.value.descripcion
 //                    binding.txtUbicacionTitle.text = "Ubicacion: " + it.value.ubicacion.title
 
-                    builder.setTitle(it.value.descripcion)
-                        .setMessage(" " +  it.value.ubicacion.title)
-                        .setCancelable(true)
-                        .show()
+//                    builder.setTitle(it.value.descripcion)
+//                        .setMessage(" " +  it.value.ubicacion.title)
+//                        .setCancelable(true)
+//                        .show()
                 }
                 is Resource.Failure -> {
                     Toast.makeText(requireContext(), "Operacion Fallida", Toast.LENGTH_SHORT).show()
@@ -132,6 +140,19 @@ class DetallePedidoFragment : BaseFragment<
 //        findNavController().navigate(action)
 //        val showPopUp = PopUpPedidoFragment()
 //        showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
+    }
+
+    fun createDialog(title: String, msj: String){
+
+        builder = AlertDialog.Builder(context)
+        builder.setTitle(title)
+            .setMessage(" " +  msj)
+            .setCancelable(false)
+            .setNegativeButton("Volver"){dialogInterface, it ->
+                dialogInterface.cancel()
+                alertCount = 0
+            }
+            .show()
     }
 
     override fun getViewModel(): Class<DetallePedidoViewModel> = DetallePedidoViewModel::class.java

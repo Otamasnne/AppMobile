@@ -29,7 +29,7 @@
 
             <Button
                 android:id="@+id/btnfetchData"
-                android:layout_width="133dp"
+                android:layout_width="wrap_content"
                 android:layout_height="133dp"
                 android:backgroundTint="@color/celeste"
                 android:textColor="@color/white"
@@ -40,7 +40,7 @@
 
             <Button
                 android:id="@+id/btnIngresos"
-                android:layout_width="133dp"
+                android:layout_width="wrap_content"
                 android:layout_height="133dp"
                 android:layout_marginBottom="99dp"
                 android:backgroundTint="#25C9DF"

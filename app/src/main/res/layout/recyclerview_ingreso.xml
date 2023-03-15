@@ -47,7 +47,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginEnd="32dp"
                         android:layout_marginBottom="32dp"
-                        android:text="@{`PD - ` + ingreso.codigo}"
+                        android:text="@{`IC - ` + ingreso.codigo}"
                         android:textColor="@color/black"
                         tools:text="213456"
                         android:textSize="20sp"
